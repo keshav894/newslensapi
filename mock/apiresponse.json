@@ -1,0 +1,109 @@
+{
+    "clients": [
+        {
+            "Name": "Regeneron",
+            "url": "https://investor.regeneron.com/",
+            "data": {
+                "usage": {},
+                "citations": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "search_results": [
+                    {
+                        "category": "Financial News",
+                        "title": "Regeneron Reports Second Quarter 2025 Financial and Operating Results",
+                        "url": "https://www.globenewswire.com/news-release/2025/08/01/3125690/0/en/Regeneron-Reports-Second-Quarter-2025-Financial-and-Operating-Results.html",
+                        "date": "2025-08-01",
+                        "last_updated": "2025-08-01",
+                        "snippet": "Second quarter 2025 revenues increased 4% to $3.68 billion versus Q2 2024. Growth driven by U.S. sales of EYLEA HD and global sales of Dupixent and Libtayo. FDA approvals for Lynozyfic, new indications for Dupixent including bullous pemphigoid and chronic spontaneous urticaria. Positive pivotal data supports near- and long-term pipeline potential."
+                    },
+                    {
+                        "category": "Latest Headlines",
+                        "title": "More delays for Regeneron",
+                        "url": "https://www.oncologypipeline.com/apexonco/more-delays-regeneron",
+                        "date": "2025-08-01",
+                        "last_updated": "2025-08-01",
+                        "snippet": "Regeneron's CD20-targeting T-cell engager odronextamab was rejected again by the FDA due to third-party manufacturing issues at a Catalent facility. Also, phase 3 readout for anti-Lag3 drug fianlimab in melanoma delayed to early 2026 amid slower progression-free survival event rates."
+                    },
+                    {
+                        "category": "Latest Headlines",
+                        "title": "Regeneron cancer bispecific rejected again; Allogene adjusts plans",
+                        "url": "https://www.biopharmadive.com/news/regeneron-odronextamab-crl-allogene-patient-death-bristol-myers-earnings/756464/",
+                        "date": "2025-08-01",
+                        "last_updated": "2025-08-01",
+                        "snippet": "FDA issued a complete response letter (CRL) for Regeneron's lymphoma drug odronextamab due to manufacturing issues at a third-party plant. The setback requires a refile of the application. Also, approval decision on Eylea HD delayed for the same reason."
+                    },
+                    {
+                        "category": "Press Release",
+                        "title": "Regeneron Faces FDA Setbacks with CRL for Odronextamab, Delays on Eylea HD BLA Amid Third-Party Manufacturing Issues",
+                        "url": "https://www.pharmexec.com/view/regeneron-fda-crl-odronextamab-eylea",
+                        "date": "2025-08-01",
+                        "last_updated": "2025-08-01",
+                        "snippet": "FDA issued a second CRL for odronextamab caused by third-party manufacturing site issues at Novo Nordisk Indiana facility, not drug safety or efficacy. Eylea HD expanded indication approval may be delayed despite Priority Review. Regeneron Q2 revenue grew driven by Dupixent and Eylea HD sales while advancing oncology pipeline."
+                    }
+                ],
+                "AI_Summary": "Regeneron reported a 4% revenue increase in Q2 2025 to $3.68 billion, led by strong sales of EYLEA HD, Dupixent, and Libtayo, along with new FDA approvals for drugs including Lynozyfic and expanded indications for Dupixent. However, the company faced regulatory setbacks with the FDA issuing a second complete response letter (CRL) for its lymphoma drug odronextamab due to manufacturing issues at a third-party plant, requiring reapplication. The approval of Eylea HD's expanded indications also faces delays related to the same manufacturing facility. Additionally, a pivotal phase 3 study readout for the anti-Lag3 drug fianlimab has been postponed to early 2026 due to slower event progression. Despite these challenges, Regeneron continues to advance its oncology pipeline with multiple Phase III trials and anticipates further regulatory milestones later in the year."
+            }
+        },
+        {
+            "Name": "Bboehringer-Ingelheim",
+            "url": "https://www.boehringer-ingelheim.com/media-stories",
+            "data": {
+                "usage": {},
+                "citations": [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                ],
+                "search_results": [
+                    {
+                        "category": "Press Release",
+                        "title": "Boehringer Ingelheim Previews New Product Launches Expected in 2025",
+                        "url": "https://www.pharmtech.com/view/boehringer-ingelheim-previews-new-product-launches-expected-in-2025",
+                        "date": "2025-04-22",
+                        "last_updated": "2025-04-22",
+                        "snippet": "Boehringer Ingelheim announced new product launches for 2025 including treatments for idiopathic or progressive pulmonary fibrosis and the first oral targeted therapy for HER2-mutated lung cancer. The company plans significant R&D spending with more than 10 new Phase II and III trials."
+                    },
+                    {
+                        "category": "Press Release",
+                        "title": "Boehringer Ingelheim and LEO Pharma enter partnership",
+                        "url": "https://www.leo-pharma.com/media-center/news/2025-boehringer-ingelheim-and-leo-pharma-enter-partnership",
+                        "date": "2025-07-14",
+                        "last_updated": "2025-07-14",
+                        "snippet": "Boehringer Ingelheim and LEO Pharma signed an exclusive global license and transfer agreement to commercialize and develop SPEVIGO® (spesolimab), a monoclonal antibody for generalized pustular psoriasis and other IL-36-driven skin conditions."
+                    },
+                    {
+                        "category": "Press Release",
+                        "title": "Boehringer Ingelheim Reports Strong H1 2025 Growth and Prepares Key Launches",
+                        "url": "https://www.boehringer-ingelheim.com/us/media/press-releases/boehringer-ingelheim-reports-strong-h1-2025-growth-and-prepares-key-launches",
+                        "date": "2025-07-28",
+                        "last_updated": "2025-07-28",
+                        "snippet": "Boehringer Ingelheim's Human Pharma business grew 5.7% in the first half of 2025 to EUR 11.3 billion. The company is preparing for significant product launches in the second half of 2025."
+                    },
+                    {
+                        "category": "Latest Headlines",
+                        "title": "FDA Nod Makes Boehringer Ingelheim Drug an Alternative to AstraZeneca ADC in Lung Cancer",
+                        "url": "https://medcitynews.com/2025/08/lung-cancer-her2-mutation-boehringer-ingelheim-hernexeos-zongertinib-nsclc/",
+                        "date": "2025-08",
+                        "last_updated": "2025-08",
+                        "snippet": "Boehringer Ingelheim’s pill Hernexeos received accelerated FDA approval for treating HER2-mutated advanced NSCLC. A Phase 3 study comparing Hernexeos with Keytruda plus chemotherapy is underway with preliminary data expected in late 2026."
+                    },
+                    {
+                        "category": "Financial News",
+                        "title": "Boehringer Ingelheim Reports 6.3% Sales Growth and Pipeline Progress",
+                        "url": "https://www.boehringer-ingelheim.com/us/media/press-releases",
+                        "date": "2025-07-28",
+                        "last_updated": "2025-07-28",
+                        "snippet": "The company reported 6.3% sales growth in H1 2025, highlighting pipeline progress and preparing for several major product launches in H2 2025."
+                    }
+                ],
+                "AI_Summary": "In 2025, Boehringer Ingelheim has demonstrated robust growth and significant advancement in its pipeline. The company reported a 5.7% sales increase in the first half of 2025, reaching EUR 11.3 billion, and is preparing major product launches targeting pulmonary fibrosis and HER2-mutated lung cancer. A notable partnership with LEO Pharma was established to commercialize SPEVIGO® for rare skin diseases, expanding treatment access. Additionally, Boehringer Ingelheim’s oral drug Hernexeos received accelerated FDA approval as a new treatment option for HER2-mutated advanced non-small cell lung cancer. A confirmatory Phase 3 study is ongoing, with preliminary results expected by late 2026. These developments underscore Boehringer Ingelheim’s focus on innovation and patient care expansion in 2025."
+            }
+        }
+    ]
+}
