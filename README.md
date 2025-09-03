@@ -93,3 +93,63 @@ After evaluating multiple deployment options including Google Cloud Run, Azure C
 This choice lets me focus on the fun parts like building AI agents and web scraping, instead of spending time on boring server maintenance. Plus, if my project actually gets used by real companies, Lambda will scale automatically without me having to rewrite everything.
 
 **Bottom line**: As a student, I get professional-grade hosting for basically free, and I can put "AWS Lambda" on my resume! 🚀
+
+
+# How to Call the API
+
+To use the NewLens API, you must pass your own PerplexityAI API Key as a Bearer token in the `Authorization` header. Do **not** share your API key publicly.
+
+## Sample CURL Request
+
+```bash
+curl --location 'https://b0sceka65j.execute-api.us-east-1.amazonaws.com/dev/getnews' \
+	--header 'Authorization: Bearer <YOUR_PERPLEXITY_API_KEY>' \
+	--header 'Content-Type: application/json' \
+	--data '{
+		"ismock": false,
+		"clients": [
+			{
+				"name": "RLDatix Life Sciences",
+				"url": "https://www.rldatixlifesciences.com/"
+			}
+		],
+		"categories": [
+			"Latest Headlines",
+			"Press Release",
+			"Financial News"
+		]
+	}'
+```
+
+Replace `<YOUR_PERPLEXITY_API_KEY>` with your own key.
+
+## Sample Python Request
+
+```python
+import requests
+
+url = "https://b0sceka65j.execute-api.us-east-1.amazonaws.com/dev/getnews"
+headers = {
+		"Authorization": "Bearer <YOUR_PERPLEXITY_API_KEY>",
+		"Content-Type": "application/json"
+}
+payload = {
+		"ismock": False,
+		"clients": [
+				{
+						"name": "RLDatix Life Sciences",
+						"url": "https://www.rldatixlifesciences.com/"
+				}
+		],
+		"categories": [
+				"Latest Headlines",
+				"Press Release",
+				"Financial News"
+		]
+}
+
+response = requests.post(url, headers=headers, json=payload)
+print(response.json())
+```
+
+Replace `<YOUR_PERPLEXITY_API_KEY>` with your own key.
