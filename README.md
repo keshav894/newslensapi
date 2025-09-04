@@ -151,3 +151,59 @@ print(response.json())
 ```
 
 Replace `<YOUR_PERPLEXITY_API_KEY>` with your own key.
+
+## Sample Response
+```json
+{
+    "clients": [
+        {
+            "Name": "RLDatix Life Sciences",
+            "url": "https://www.rldatixlifesciences.com/",
+            "data": {
+                "usage": {},
+                "citations": [
+                    "1",
+                    "2",
+                    "3",
+                    "5"
+                ],
+                "search_results": [
+                    {
+                        "category": "Latest Headlines",
+                        "title": "MediSpend and RLDatix Life Sciences Subsidiary Merge to Form Leading Global Provider",
+                        "url": "https://www.rldatixlifesciences.com/medispend-and-life-sciences-subsidiary-of-rldatix-merge-to-form-leading-global-provider-of-regulatory-and-compliance-saas-solutions-for-life-sciences/",
+                        "date": "2025-09-02",
+                        "last_updated": "2025-09-02",
+                        "snippet": "MediSpend and RLDatix Life Sciences announced a definitive agreement to merge, creating a unified company providing best-in-class regulatory and compliance SaaS solutions for pharmaceutical, biotech, and medical device companies globally, serving over 300 clients."
+                    },
+                    {
+                        "category": "Press Release",
+                        "title": "MediSpend and RLDatix Life Sciences Merge to Accelerate Innovation and Compliance",
+                        "url": "https://www.prnewswire.com/news-releases/medispend-and-life-sciences-subsidiary-of-rldatix-merge-to-form-leading-global-provider-of-regulatory-and-compliance-saas-solutions-for-life-sciences-302542271.html",
+                        "date": "2025-09-02",
+                        "last_updated": "2025-09-02",
+                        "snippet": "The merger combines RLDatix Life Sciences' expertise in pharmaceutical product development and commercialization with MediSpend’s transparency and data solutions, enabling faster innovation, stronger regulatory integrity, and improved healthcare market delivery."
+                    },
+                    {
+                        "category": "Press Release",
+                        "title": "Kirkland & Ellis Advises RLDatix on Merger of Life Sciences Division with MediSpend",
+                        "url": "https://www.kirkland.com/news/press-release/2025/09/kirkland-advises-rldatix-on-merger-of-its-life-sciences-division-with-medispend",
+                        "date": "2025-09-02",
+                        "last_updated": "2025-09-02",
+                        "snippet": "Kirkland & Ellis served as legal advisor for RLDatix in its merger with MediSpend, forming a unified company focused on compliance and innovation in the life sciences industry serving over 300 global pharmaceutical, biotech, and medical device companies."
+                    },
+                    {
+                        "category": "Financial News",
+                        "title": "What It Takes to Launch in 2025: MFN, MFP, IRA, and the New Rules of the Road",
+                        "url": "https://www.rldatixlifesciences.com/what-it-takes-to-launch-in-2025-mfn-mfp-ira-and-the-new-rules-of-the-road/",
+                        "date": "2025-08-01",
+                        "last_updated": "2025-08-01",
+                        "snippet": "RLDatix Life Sciences discusses the impact of the Inflation Reduction Act on drug pricing, emphasizing the need for embedding inflation analytics and rebate planning into commercialization strategies for 2025 launches."
+                    }
+                ],
+                "AI_Summary": "In early September 2025, RLDatix Life Sciences and MediSpend announced a strategic merger to create a leading global provider of regulatory and compliance SaaS solutions tailored to the life sciences sector, including pharmaceutical, biotech, and medical device companies. This merger unites RLDatix's expertise in product development and commercialization with MediSpend's advanced transparency and data management technologies, enhancing innovation, regulatory compliance, and market delivery. The combined company, serving over 300 clients worldwide, is supported by major investment firms and will operate under both brands initially with plans for future unification. Legal advisory for the deal was provided by Kirkland & Ellis. Additionally, RLDatix Life Sciences continues to address evolving industry challenges such as drug pricing affected by the Inflation Reduction Act, advocating for advanced analytics and rebate integration to optimize commercialization strategies."
+            }
+        }
+    ]
+}
+```
