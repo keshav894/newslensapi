@@ -57,8 +57,6 @@ After evaluating multiple deployment options including Google Cloud Run, Azure C
 **3. Ecosystem Integration**
 - Native integration with API Gateway for REST endpoints
 - CloudWatch for monitoring and logging out-of-the-box
-- EventBridge for scheduling weekly analysis tasks
-- Seamless integration with MCP (Model Context Protocol) servers
 - IAM for fine-grained security controls
 
 **4. Development Velocity**
