@@ -9,7 +9,6 @@ In today's fast-paced business environment, professionals and organizations stru
 - **AI-Powered News Search:** Automatically finds the latest news articles about companies.
 - **Intelligent Summarization:** Uses advanced AI models to generate concise, relevant summaries of news content.
 - **Company-Focused Insights:** Tailored to deliver actionable information about businesses and organizations.
-- **Mock Mode for Testing:** Supports mock responses for development and testing.
 - **Cloud-Ready:** Designed for deployment as an AWS Lambda function.
 
 ## Usage
