@@ -179,6 +179,38 @@
             color: #495057;
         }
         
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .content-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            min-height: 300px;
+            background: #f0f0f0;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1rem;
+            padding: 20px;
+            text-align: center;
+        }
+        
         footer {
             margin-top: 60px;
             padding-top: 30px;
@@ -207,8 +239,13 @@
         <header>
             <h1>How I Built an AI-Powered News Intelligence API for Real Companies</h1>
             <p class="subtitle">A high school junior's journey from idea to production-ready solution</p>
-            <p class="author-info">By Keshav Shrivastava | Summer 2025</p>
+            <p class="author-info">By Keshav Shrivastava | Summer 2024</p>
         </header>
+
+        <!-- Hero Image Placeholder -->
+        <div class="hero-image">
+           <img src="Copilot1.webp" alt="Office Copilot">
+        </div>
 
         <article>
             <p>As a junior in high school, I never imagined that a summer project would end up being integrated into a real company's Microsoft 365 Copilot system. Yet here I am, writing about NewLens API — an AI-powered solution that's helping sales and marketing teams stay on top of company news without the manual hassle.</p>
@@ -237,6 +274,13 @@
             <h2>The Technical Journey</h2>
 
             <h3>Choosing the Right Architecture</h3>
+            
+            <!-- Architecture Diagram Placeholder -->
+            <div class="content-image">
+                [Image Placeholder: AWS Lambda Architecture Diagram]<br>
+                Shows how the API works with Lambda, API Gateway, and Perplexity AI
+            </div>
+            
             <p>After evaluating multiple deployment options including Google Cloud Run, Azure Container Instances, Railway, and traditional server hosting, I chose AWS Lambda for several key reasons:</p>
             <p><strong>Cost-Effective for Students:</strong> With Lambda's pay-per-execution model, I only pay for actual usage. For a student budget, this was crucial — no $20/month hosting fees for an app that runs occasionally.</p>
             <p><strong>Perfect for the Use Case:</strong> News intelligence doesn't need 24/7 server uptime. Lambda's event-driven architecture aligns perfectly with periodic analysis tasks.</p>
@@ -276,6 +320,13 @@
             <p>The response delivers structured, AI-summarized insights that can be immediately consumed by other systems or presented to users.</p>
 
             <h2>Real-World Impact: Microsoft 365 Copilot Integration</h2>
+            
+            <!-- Screenshot Placeholder -->
+            <div class="content-image">
+                [Image Placeholder: Screenshot of Microsoft 365 Copilot using NewLens API]<br>
+                Shows the integration in action with sample queries and responses
+            </div>
+            
             <div class="callout">
                 <p>The most exciting validation came when a real company integrated NewLens API into their Microsoft 365 Copilot system. Their sales and marketing teams can create an Excel document in their SharePoint portal and create a simple Office 365 Copilot Agent to call NewsLens API.</p>
             </div>
