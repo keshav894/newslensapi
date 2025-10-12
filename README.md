@@ -2,6 +2,9 @@
 
 NewLens API is an AI-powered solution designed to search, analyze, and intelligently summarize the latest news on companies, helping you stay informed with concise and relevant insights.
 
+## Problem Statement
+In today's fast-paced business environment, professionals and organizations struggle to monitor multiple companies simultaneously due to information overload and time constraints. Company news is fragmented across countless websites, press releases, and media outlets, making it extremely time-consuming to manually search, read, and synthesize relevant information. Business professionals need to track clients, partners, and competitors, but gathering comprehensive intelligence requires visiting multiple sources and spending hours on research that could be better spent on strategic activities. Raw news articles are often lengthy and lack focus on specific business-critical information such as mergers, regulatory changes, or financial developments, requiring significant effort to extract actionable insights. Manual monitoring is also prone to inconsistencies and gaps, leading to missed opportunities or delayed responses to market changes. Enterprise-grade business intelligence platforms exist but are prohibitively expensive for smaller teams or independent professionals who need basic company monitoring without enterprise pricing. NewLens API addresses these challenges by providing an AI-powered, cost-effective serverless solution that automatically searches, analyzes, and intelligently summarizes the latest company news across multiple categories, delivering concise and relevant insights in seconds without manual effort.
+
 ## Features
 - **AI-Powered News Search:** Automatically finds the latest news articles about companies.
 - **Intelligent Summarization:** Uses advanced AI models to generate concise, relevant summaries of news content.
