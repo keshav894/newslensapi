@@ -1,411 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How I Built an AI-Powered News Intelligence API</title>
-<style>
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How I Built an AI-Powered News Intelligence API</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-line-height: 1.7;
-color: #333;
-background: #f8f9fa;
-}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.7;
+      color: #333;
+      background: #f8f9fa;
+    }
 
-.container {
-max-width: 720px;
-margin: 0 auto;
-padding: 40px 20px;
-background: white;
-min-height: 100vh;
-}
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: white;
+      min-height: 100vh;
+    }
 
-header {
-margin-bottom: 50px;
-border-bottom: 1px solid #e5e5e5;
-padding-bottom: 30px;
-}
+    header {
+      margin-bottom: 50px;
+      border-bottom: 1px solid #e5e5e5;
+      padding-bottom: 30px;
+    }
 
-h1 {
-font-size: 2.5rem;
-font-weight: 700;
-color: #1a1a1a;
-margin-bottom: 15px;
-line-height: 1.2;
-}
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
 
-.subtitle {
-font-size: 1.25rem;
-color: #666;
-font-style: italic;
-margin-bottom: 20px;
-}
+    .subtitle {
+      font-size: 1.25rem;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
 
-.author-info {
-color: #666;
-font-size: 0.95rem;
-}
+    .author-info {
+      color: #666;
+      font-size: 0.95rem;
+    }
 
-h2 {
-font-size: 1.75rem;
-font-weight: 600;
-color: #1a1a1a;
-margin: 40px 0 20px 0;
-}
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 40px 0 20px 0;
+    }
 
-h3 {
-font-size: 1.35rem;
-font-weight: 600;
-color: #2a2a2a;
-margin: 30px 0 15px 0;
-}
+    h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #2a2a2a;
+      margin: 30px 0 15px 0;
+    }
 
-p {
-margin-bottom: 20px;
-font-size: 1.05rem;
-}
+    p { margin-bottom: 20px; font-size: 1.05rem; }
 
-ul, ol {
-margin: 20px 0 20px 30px;
-}
+    ul, ol { margin: 20px 0 20px 30px; }
 
-li {
-margin-bottom: 12px;
-font-size: 1.05rem;
-}
+    li { margin-bottom: 12px; font-size: 1.05rem; }
 
-.feature-list {
-list-style: none;
-margin-left: 0;
-}
+    .feature-list { list-style: none; margin-left: 0; }
 
-.feature-list li {
-padding-left: 35px;
-position: relative;
-}
+    .feature-list li { padding-left: 35px; position: relative; }
 
-.feature-list li:before {
-content: '';
-position: absolute;
-left: 0;
-top: 8px;
-width: 20px;
-height: 20px;
-background: #4CAF50;
-border-radius: 50%;
-}
+    .feature-list li:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 20px;
+      height: 20px;
+      background: #4CAF50;
+      border-radius: 50%;
+    }
 
-code {
-background: #f4f4f4;
-padding: 2px 6px;
-border-radius: 3px;
-font-family: 'Courier New', monospace;
-font-size: 0.9em;
-color: #d63384;
-}
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #d63384;
+    }
 
-pre {
-background: #f8f9fa;
-border: 1px solid #dee2e6;
-border-radius: 8px;
-padding: 20px;
-overflow-x: auto;
-margin: 25px 0;
-}
+    pre {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 20px;
+      overflow-x: auto;
+      margin: 25px 0;
+    }
 
-pre code {
-background: none;
-padding: 0;
-color: #333;
-font-size: 0.9rem;
-}
+    pre code { background: none; padding: 0; color: #333; font-size: 0.9rem; }
 
-.callout {
-background: #e7f3ff;
-border-left: 4px solid #2196F3;
-padding: 20px;
-margin: 30px 0;
-border-radius: 4px;
-}
+    .callout {
+      background: #e7f3ff;
+      border-left: 4px solid #2196F3;
+      padding: 20px;
+      margin: 30px 0;
+      border-radius: 4px;
+    }
 
-.example-box {
-background: #f9f9f9;
-border: 2px solid #e0e0e0;
-border-radius: 8px;
-padding: 25px;
-margin: 30px 0;
-}
+    .example-box {
+      background: #f9f9f9;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 25px;
+      margin: 30px 0;
+    }
 
-.example-box h4 {
-margin-top: 0;
-margin-bottom: 15px;
-color: #2c3e50;
-}
+    .example-box h4 { margin-top: 0; margin-bottom: 15px; color: #2c3e50; }
+    .example-box ul { margin-left: 20px; }
 
-.example-box ul {
-margin-left: 20px;
-}
+    a {
+      color: #2196F3;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.2s;
+    }
+    a:hover { border-bottom: 1px solid #2196F3; }
 
-a {
-color: #2196F3;
-text-decoration: none;
-border-bottom: 1px solid transparent;
-transition: border-bottom 0.2s;
-}
+    .tags {
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid #e5e5e5;
+    }
 
-a:hover {
-border-bottom: 1px solid #2196F3;
-}
+    .tag {
+      display: inline-block;
+      background: #e9ecef;
+      padding: 6px 14px;
+      margin: 5px 5px 5px 0;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #495057;
+    }
 
-.tags {
-margin-top: 50px;
-padding-top: 30px;
-border-top: 1px solid #e5e5e5;
-}
+    .hero-image {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 500;
+      gap: 20px;
+      padding: 20px;
+    }
 
-.tag {
-display: inline-block;
-background: #e9ecef;
-padding: 6px 14px;
-margin: 5px 5px 5px 0;
-border-radius: 20px;
-font-size: 0.85rem;
-color: #495057;
-}
+    .content-image {
+      width: 100%;
+      max-width: 100%;
+      min-height: 300px;
+      background: #f0f0f0;
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      margin: 30px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 1rem;
+      padding: 20px;
+      text-align: center;
+    }
 
-.hero-image {
-width: 100%;
-height: 400px;
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-border-radius: 12px;
-margin-bottom: 40px;
-padding-left:314px;
-display: flex;
-align-items: center;
-justify-content: center;
-color: white;
-font-size: 1.2rem;
-font-weight: 500;
-}
+    footer {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 2px solid #e5e5e5;
+      text-align: center;
+      color: #666;
+    }
 
-.content-image {
-width: 100%;
-max-width: 100%;
-height: auto;
-min-height: 300px;
-background: #f0f0f0;
-border: 2px dashed #ccc;
-border-radius: 8px;
-margin: 30px 0;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #666;
-font-size: 1rem;
-padding: 20px;
-text-align: center;
-}
-
-footer {
-margin-top: 60px;
-padding-top: 30px;
-border-top: 2px solid #e5e5e5;
-text-align: center;
-color: #666;
-}
-
-@media (max-width: 768px) {
-h1 {
-font-size: 2rem;
-}
-
-h2 {
-font-size: 1.5rem;
-}
-
-.container {
-padding: 20px 15px;
-}
-}
-</style>
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      .container { padding: 20px 15px; }
+      .hero-image { height: 220px; flex-direction: column; gap: 10px; }
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-<header>
-<h1>How I Built an AI-Powered News Intelligence API for Real Companies</h1>
-<p class="subtitle">A high school junior's journey from idea to production-ready solution</p>
-<p class="author-info">By Keshav Matrey | Summer 2025</p>
-</header>
+  <div class="container">
+    <header>
+      <h1>How I Built an AI-Powered News Intelligence API for Real Companies</h1>
+      <p class="subtitle">A high school junior's journey from idea to production-ready solution</p>
+      <p class="author-info">By Keshav Matrey | Summer 2025</p>
+    </header>
 
-<!-- Hero Image Placeholder -->
-<div class="hero-image">
-<img src="newslensaiscreen.png" alt="Newslenswebsite"/>
-<img src="Copilot1.webp" alt="Office Copilot"/>
-</div>
+    <!-- Hero Image Placeholder -->
+    <div class="hero-image">
+      <img src="newslensaiscreen.png" alt="Newslens website screenshot" style="max-height:320px; border-radius:8px;">
+      <img src="Copilot1.webp" alt="Office Copilot screenshot" style="max-height:320px; border-radius:8px;">
+    </div>
 
-<article>
-<p>As a junior in high school, I never imagined that a summer project would end up being integrated into a real company's Microsoft 365 Copilot system. Yet here I am, writing about NewLens API — an AI-powered solution that's helping sales and marketing teams stay on top of company news without the manual hassle.</p>
+    <article>
+      <p>
+        As a junior in high school, I never imagined that a summer project would end up being integrated into a real company's Microsoft 365 Copilot system. Yet here I am, writing about NewLens API — an intelligent news-insights service I prototyped in a few weeks that later proved valuable enough to be used in production.
+      </p>
 
-<h2>The Problem That Started It All</h2>
-<p>Picture this: You're on a sales team tracking 50+ potential clients, or you're in marketing monitoring competitors. Every morning, you'd have to:</p>
-<ul>
-<li>Visit multiple news websites</li>
-<li>Search for each company individually</li>
-<li>Sift through irrelevant articles</li>
-<li>Manually summarize key information</li>
-<li>Repeat this process daily</li>
-</ul>
-<p>This tedious routine wastes hours that could be spent on actual selling or strategizing. I realized there had to be a better way.</p>
+      <h2>The Problem That Started It All</h2>
+      <p>Picture this: You're on a sales team tracking 50+ potential clients, or you're in marketing monitoring competitors. Every morning, you'd have to:</p>
+      <ul>
+        <li>Visit multiple news websites</li>
+        <li>Search for each company individually</li>
+        <li>Sift through irrelevant articles</li>
+        <li>Manually summarize key information</li>
+        <li>Repeat this process daily</li>
+      </ul>
+      <p>This tedious routine wastes hours that could be spent on actual selling or strategizing. I realized there had to be a better way.</p>
 
-<h2>What is NewLens API?</h2>
-<p>NewLens API is an intelligent news aggregation service that:</p>
-<ul class="feature-list">
-<li>Automatically finds the latest news about specific companies</li>
-<li>Uses AI to summarize content into concise, actionable insights</li>
-<li>Filters by categories like press releases, financial news, and headlines</li>
-<li>Integrates seamlessly with existing tools and workflows</li>
-</ul>
-<p>Think of it as your personal news assistant that never sleeps and never gets tired of searching for company updates.</p>
+      <h2>What is NewLens API?</h2>
+      <p>NewLens API is an intelligent news aggregation service that:</p>
+      <ul class="feature-list">
+        <li>Automatically finds the latest news about specific companies</li>
+        <li>Uses AI to summarize content into concise, actionable insights</li>
+        <li>Filters by categories like press releases, financial news, and headlines</li>
+        <li>Integrates seamlessly with existing tools and workflows</li>
+      </ul>
+      <p>Think of it as your personal news assistant that never sleeps and never gets tired of searching for company updates.</p>
 
-<h2>The Technical Journey</h2>
+      <h2>The Technical Journey</h2>
 
-<h3>Choosing the Right Architecture</h3>
+      <h3>Choosing the Right Architecture</h3>
+      <p>
+        After evaluating multiple deployment options including Google Cloud Run, Azure Container Instances, Railway, and traditional web hosting, I chose AWS Lambda for several key reasons:
+      </p>
+      <p><strong>Cost-Effective for Students:</strong> With Lambda's pay-per-execution model, I only pay for actual usage. For a student budget, this was crucial — no $20/month hosting fees for an app that sits idle most of the time.</p>
+      <p><strong>Perfect for the Use Case:</strong> News intelligence doesn't need 24/7 server uptime. Lambda's event-driven architecture aligns perfectly with periodic analysis tasks.</p>
+      <p><strong>Professional Scalability:</strong> If this project grows, Lambda scales automatically without requiring architectural rewrites, letting me gain practical cloud experience while keeping costs low.</p>
 
-<p>After evaluating multiple deployment options including Google Cloud Run, Azure Container Instances, Railway, and traditional server hosting, I chose AWS Lambda for several key reasons:</p>
-<p><strong>Cost-Effective for Students:</strong> With Lambda's pay-per-execution model, I only pay for actual usage. For a student budget, this was crucial — no $20/month hosting fees for an app that runs occasionally.</p>
-<p><strong>Perfect for the Use Case:</strong> News intelligence doesn't need 24/7 server uptime. Lambda's event-driven architecture aligns perfectly with periodic analysis tasks.</p>
-<p><strong>Professional Scalability:</strong> If this project grows, Lambda scales automatically without requiring architectural rewrites.</p>
+      <h3>Why Not the Other Options?</h3>
+      <p><strong>Railway/Render:</strong> These platforms looked cool and were beginner-friendly, but they typically cost $5–20/month even when my app wasn't running. That's too steep for a student budget when Lambda's pay-per-execution model would cost a fraction of that for low traffic.</p>
+      <p><strong>Google Cloud Run:</strong> Quite similar to Lambda with comparable pricing, but AWS had more beginner-friendly documentation and learning resources that helped me move faster.</p>
+      <p><strong>Traditional Web Hosting:</strong> Would have cost $10+ monthly and required learning server management — work that didn't directly add value to the core product. I wanted to focus on AI features, not server ops.</p>
+      <p>The decision ultimately came down to focusing on what mattered: building AI-powered features rather than managing infrastructure. AWS Lambda let me put "serverless architecture" on my resume while keeping operational overhead and costs low.</p>
 
-<h3>Why Not the Other Options?</h3>
-<p><strong>Railway/Render:</strong> These platforms looked cool and were beginner-friendly, but they cost $5–20/month even when my app wasn't running. That's too steep for a student budget when Lambda could handle the same workload essentially for free.</p>
-<p><strong>Google Cloud Run:</strong> Actually quite similar to Lambda with comparable pricing, but AWS had better documentation and more learning resources for someone just starting with cloud development.</p>
-<p><strong>Traditional Web Hosting:</strong> Would have cost $10+ monthly and required learning server management — skills that weren't really relevant to my core project goals. Plus, I'd be paying for resources I wasn't using 99% of the time.</p>
-<p>The decision ultimately came down to focusing on what mattered: building AI-powered features rather than managing infrastructure. AWS Lambda let me put "serverless architecture" on my resume while keeping costs near zero!</p>
+      <h3>The Tech Stack</h3>
+      <ul>
+        <li>Python for the core Lambda function</li>
+        <li>Perplexity AI API for intelligent news analysis and summarization</li>
+        <li>AWS Lambda for serverless deployment</li>
+        <li>API Gateway for REST endpoint management</li>
+        <li>CloudWatch for monitoring and logging</li>
+      </ul>
 
-<h3>The Tech Stack</h3>
-<ul>
-<li>Python for the core Lambda function</li>
-<li>Perplexity AI API for intelligent news analysis and summarization</li>
-<li>AWS Lambda for serverless deployment</li>
-<li>API Gateway for REST endpoint management</li>
-<li>CloudWatch for monitoring and logging</li>
-</ul>
-
-<h3>API Design Philosophy</h3>
-<p>I designed the API to be simple yet powerful. Here's how it works:</p>
-<pre><code>{
-"ismock": false,
-"clients": [
-{
-"name": "RLDatix Life Sciences",
-"url": "https://www.rldatixlifesciences.com/"
-}
-],
-"categories": [
-"Latest Headlines",
-"Press Release",
-"Financial News"
-]
+      <h3>API Design Philosophy</h3>
+      <p>I designed the API to be simple yet powerful. Here's how it works:</p>
+      <pre><code>{
+  "ismock": false,
+  "clients": [
+    {
+      "name": "RLDatix Life Sciences",
+      "url": "https://www.rldatixlifesciences.com/"
+    }
+  ],
+  "categories": [
+    "Latest Headlines",
+    "Press Release",
+    "Financial News"
+  ]
 }</code></pre>
-<p>The response delivers structured, AI-summarized insights that can be immediately consumed by other systems or presented to users.</p>
+      <p>The response delivers structured, AI-summarized insights that can be immediately consumed by other systems or presented to users.</p>
 
-<h2>Real-World Impact: Microsoft 365 Copilot Integration</h2>
+      <h2>Real-World Impact: Microsoft 365 Copilot Integration</h2>
 
-<!-- Screenshot Placeholder -->
-<div class="content-image">
-<img src="Copilot2.webp" alt="Office Copilot2"/>
-</div>
-<div class="content-image">
-<img src="3opilot2.webp" alt="Office Copilot3"/>
-</div>
-<div class="content-image">
-<img src="Copilot3.webp" alt="Office Copilot4"/>
-</div>
-<div class="callout">
-<p>The most exciting validation came when a real company integrated NewLens API into their Microsoft 365 Copilot system. Their sales and marketing teams can create an Excel document in their SharePoint portal and create a simple Office 365 Copilot Agent to call NewsLens API.</p>
-</div>
+      <!-- Screenshot Placeholder -->
+      <div class="content-image">
+        <img src="Copilot2.webp" alt="Copilot integration example" style="max-width:100%; max-height:260px; border-radius:6px;">
+      </div>
+      <div class="content-image">
+        <img src="3opilot2.webp" alt="Copilot example 2" style="max-width:100%; max-height:260px; border-radius:6px;">
+      </div>
+      <div class="content-image">
+        <img src="Copilot3.webp" alt="Copilot example 3" style="max-width:100%; max-height:260px; border-radius:6px;">
+      </div>
 
-<p>They can ask <strong>"Show me the latest news"</strong> or simply ask for a specific company: <strong>"Show me the latest news for RLDatix LifeSciences"</strong></p>
+      <div class="callout">
+        <p>
+          The most exciting validation came when a company integrated NewLens API into their Microsoft 365 Copilot system. Their sales and marketing teams create an Excel document in SharePoint, list the companies they track, and then ask Copilot to pull the latest news for each company automatically.
+        </p>
+      </div>
 
-<div class="example-box">
-<p>And instantly receive:</p>
-<h4>Press Release Updates</h4>
-<ul>
-<li>MediSpend and RLDatix Life Sciences Merge — Creating a unified SaaS platform for regulatory compliance across 300+ global pharmaceutical, biotech, and medical device companies</li>
-<li>Date: September 2, 2025</li>
-</ul>
-<h4>Latest Headlines</h4>
-<ul>
-<li>RLDatix Expands Leadership Team — Appointed key executives including Chief People Officer and Senior VP of Global Operations to drive growth and operational excellence</li>
-<li>Date: July 21, 2025</li>
-</ul>
-</div>
+      <p>They can ask <strong>"Show me the latest news"</strong> or simply request a specific company: <strong>"Show me the latest news for RLDatix Life Sciences"</strong>.</p>
 
-<p>This integration saves their team hours of manual research weekly, allowing them to focus on relationship building and strategic planning.</p>
+      <div class="example-box">
+        <p>And instantly receive:</p>
 
-<h2>Key Lessons Learned</h2>
+        <h4>Press Release Updates</h4>
+        <ul>
+          <li>MediSpend and RLDatix Life Sciences Merge — creating a unified SaaS platform for regulatory compliance across 300+ global pharmaceutical, biotech, and medical device customers</li>
+          <li>Date: September 2, 2025</li>
+        </ul>
 
-<h3>1. Start With Real Problems</h3>
-<p>The best projects solve genuine pain points. By focusing on the tedious news-monitoring workflow, I created something people actually wanted to use.</p>
+        <h4>Latest Headlines</h4>
+        <ul>
+          <li>RLDatix Expands Leadership Team — appointed key executives including Chief People Officer and Senior VP of Global Operations</li>
+          <li>Date: July 21, 2025</li>
+        </ul>
+      </div>
 
-<h3>2. Architecture Decisions Matter</h3>
-<p>Choosing AWS Lambda wasn't just about cost — it was about aligning technology choices with actual usage patterns and future scalability needs.</p>
+      <p>This integration saves their team hours of manual research weekly, allowing them to focus on relationship building and strategic planning.</p>
 
-<h3>3. AI APIs Are Powerful Building Blocks</h3>
-<p>Rather than building AI from scratch, leveraging Perplexity's API allowed me to focus on the core value proposition while delivering professional-quality results.</p>
+      <h2>Key Lessons Learned</h2>
 
-<h3>4. Security and API Design</h3>
-<p>Requiring users to provide their own Perplexity API keys ensures security and compliance while keeping operational costs manageable.</p>
+      <h3>1. Start With Real Problems</h3>
+      <p>The best projects solve genuine pain points. By focusing on the tedious news-monitoring workflow, I created something people actually wanted to use.</p>
 
-<h2>What's Next?</h2>
-<p>The positive response has been overwhelming. Future enhancements I'm considering:</p>
-<ul>
-<li>Sentiment analysis for deeper insights</li>
-<li>Historical trend tracking to identify patterns</li>
-<li>Webhook notifications for real-time updates</li>
-<li>Custom categorization for industry-specific needs</li>
-</ul>
+      <h3>2. Architecture Decisions Matter</h3>
+      <p>Choosing AWS Lambda wasn't just about cost — it was about aligning technology choices with actual usage patterns and future scalability needs.</p>
 
-<h2>For Fellow Students and Developers</h2>
-<p>If you're inspired to build something similar, here are my recommendations:</p>
-<p><strong>Start Small:</strong> Begin with a focused use case rather than trying to solve everything.</p>
-<p><strong>Choose Modern Tools:</strong> Serverless architectures like AWS Lambda reduce operational complexity and costs.</p>
-<p><strong>Think Integration:</strong> Design APIs that play well with existing tools (like Microsoft 365, Slack, or custom dashboards).</p>
-<p><strong>Solve Real Problems:</strong> The best validation is when real companies integrate your solution into their workflows.</p>
+      <h3>3. AI APIs Are Powerful Building Blocks</h3>
+      <p>Rather than building AI from scratch, leveraging Perplexity's API allowed me to focus on the core value proposition while delivering professional-quality results.</p>
 
-<h2>Try It Yourself</h2>
-<p>NewLens API code is available to download and deploy as Lambda function in AWS for developers who want to integrate intelligent news monitoring into their applications. The API requires your own Perplexity AI key, ensuring security and cost transparency.</p>
-<p><strong>API Endpoint:</strong> <a href="https://b0sceka65j.execute-api.us-east-1.amazonaws.com/dev/getnews" target="_blank">https://b0sceka65j.execute-api.us-east-1.amazonaws.com/dev/getnews</a></p>
-<p>Check out the full documentation and sample code in my <a href="https://github.com/keshav894/newslensapi" target="_blank">GitHub repository</a>.</p>
+      <h3>4. Security and API Design</h3>
+      <p>Requiring users to provide their own Perplexity API keys helps protect credentials and keep operational costs manageable.</p>
 
-<div class="callout">
-<p><strong>Building NewLens API taught me that age doesn't limit impact.</strong> With the right problem focus, modern tools, and persistence, high school students can create solutions that real companies find valuable.</p>
-<p><strong>What problem will you solve next?</strong></p>
-</div>
+      <h2>What's Next?</h2>
+      <p>The positive response has been encouraging. Future enhancements I'm considering:</p>
+      <ul>
+        <li>Sentiment analysis for deeper insights</li>
+        <li>Historical trend tracking to identify patterns</li>
+        <li>Webhook notifications for real-time updates</li>
+        <li>Custom categorization for industry-specific needs</li>
+      </ul>
 
-<div class="tags">
-<span class="tag">#AI</span>
-<span class="tag">#API</span>
-<span class="tag">#AWS</span>
-<span class="tag">#ServerlessComputing</span>
-<span class="tag">#NewsIntelligence</span>
-<span class="tag">#StudentDeveloper</span>
-<span class="tag">#Microsoft365</span>
-<span class="tag">#Copilot</span>
-<span class="tag">#TechInnovation</span>
-<span class="tag">#HighSchoolDeveloper</span>
-</div>
-</article>
+      <h2>For Fellow Students and Developers</h2>
+      <p>If you're inspired to build something similar, here are my recommendations:</p>
+      <p><strong>Start Small:</strong> Begin with a focused use case rather than trying to solve everything.</p>
+      <p><strong>Choose Modern Tools:</strong> Serverless architectures like AWS Lambda reduce operational complexity and costs.</p>
+      <p><strong>Think Integration:</strong> Design APIs that play well with existing tools (like Microsoft 365, Slack, or custom dashboards).</p>
+      <p><strong>Solve Real Problems:</strong> The best validation is when real companies integrate your solution into their workflows.</p>
 
-<footer>
-<p>&copy; 2025 Keshav Matrey | <a href="https://github.com/keshav894/newslensapi" target="_blank">GitHub</a></p>
-</footer>
-</div>
+      <h2>Try It Yourself</h2>
+      <p>
+        NewLens API code is available to download and deploy as a Lambda function in AWS for developers who want to integrate intelligent news monitoring into their applications. The API requires your own Perplexity API key to perform analysis and generate summaries.
+      </p>
+      <p><strong>API Endpoint:</strong> <a href="https://b0sceka65j.execute-api.us-east-1.amazonaws.com/dev/getnews" target="_blank" rel="noopener">https://b0sceka65j.execute-api.us-east-1.amazonaws.com/dev/getnews</a></p>
+      <p>Check out the full documentation and sample code in my <a href="https://github.com/keshav894/newslensapi" target="_blank" rel="noopener">GitHub repository</a>.</p>
+
+      <div class="callout">
+        <p><strong>Building NewLens API taught me that age doesn't limit impact.</strong> With the right problem focus, modern tools, and persistence, high school students can create solutions that real companies will adopt.</p>
+        <p><strong>What problem will you solve next?</strong></p>
+      </div>
+
+      <div class="tags">
+        <span class="tag">#AI</span>
+        <span class="tag">#API</span>
+        <span class="tag">#AWS</span>
+        <span class="tag">#ServerlessComputing</span>
+        <span class="tag">#NewsIntelligence</span>
+        <span class="tag">#StudentDeveloper</span>
+        <span class="tag">#Microsoft365</span>
+        <span class="tag">#Copilot</span>
+        <span class="tag">#TechInnovation</span>
+        <span class="tag">#HighSchoolDeveloper</span>
+      </div>
+    </article>
+
+    <footer>
+      <p>&copy; 2025 Keshav Matrey | <a href="https://github.com/keshav894/newslensapi" target="_blank" rel="noopener">GitHub</a></p>
+    </footer>
+  </div>
 </body>
 </html>
