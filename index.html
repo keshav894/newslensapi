@@ -179,19 +179,34 @@
             color: #495057;
         }
         
+        /* Updated hero-image styles to stack images vertically and make them responsive */
         .hero-image {
             width: 100%;
-            height: 400px;
+            /* make height auto so images define height */
+            height: auto;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 12px;
             margin-bottom: 40px;
-            padding-left:314px;
+            padding: 20px;
             display: flex;
-            align-items: center;
+            flex-direction: column; /* stack images vertically */
+            gap: 20px; /* space between images */
+            align-items: center; /* center images horizontally */
             justify-content: center;
             color: white;
             font-size: 1.2rem;
             font-weight: 500;
+        }
+
+        /* Make images responsive and visually consistent */
+        .hero-image img {
+            display: block;
+            width: 100%;
+            max-width: 720px; /* won't exceed container width */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            background: transparent;
         }
         
         .content-image {
@@ -232,6 +247,15 @@
             .container {
                 padding: 20px 15px;
             }
+
+            .hero-image {
+                padding: 16px;
+                gap: 14px;
+            }
+
+            .hero-image img {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -245,12 +269,12 @@
 
         <!-- Hero Image Placeholder -->
         <div class="hero-image">
-            <img src="newslensaiscreen.png" alt="Office Copilot"/>
+           <img src="newslensaiscreen.png" alt="NewLens AI Screenshot"/>
            <img src="Copilot1.webp" alt="Office Copilot"/>
         </div>
 
         <article>
-            <p>As a junior in high school, I never imagined that a summer project would end up being integrated into a real company's Microsoft 365 Copilot system. Yet here I am, writing about NewLens API — an AI-powered solution that's helping sales and marketing teams stay on top of company news without the manual hassle.</p>
+            <p>As a junior in high school, I never imagined that a summer project would end up being integrated into a real company's Microsoft 365 Copilot system. Yet here I am, writing about NewLens[...]
 
             <h2>The Problem That Started It All</h2>
             <p>Picture this: You're on a sales team tracking 50+ potential clients, or you're in marketing monitoring competitors. Every morning, you'd have to:</p>
@@ -277,16 +301,16 @@
 
             <h3>Choosing the Right Architecture</h3>
             
-            <p>After evaluating multiple deployment options including Google Cloud Run, Azure Container Instances, Railway, and traditional server hosting, I chose AWS Lambda for several key reasons:</p>
-            <p><strong>Cost-Effective for Students:</strong> With Lambda's pay-per-execution model, I only pay for actual usage. For a student budget, this was crucial — no $20/month hosting fees for an app that runs occasionally.</p>
+            <p>After evaluating multiple deployment options including Google Cloud Run, Azure Container Instances, Railway, and traditional server hosting, I chose AWS Lambda for several key reasons:<[...]
+            <p><strong>Cost-Effective for Students:</strong> With Lambda's pay-per-execution model, I only pay for actual usage. For a student budget, this was crucial — no $20/month hosting fees fo[...]
             <p><strong>Perfect for the Use Case:</strong> News intelligence doesn't need 24/7 server uptime. Lambda's event-driven architecture aligns perfectly with periodic analysis tasks.</p>
             <p><strong>Professional Scalability:</strong> If this project grows, Lambda scales automatically without requiring architectural rewrites.</p>
 
             <h3>Why Not the Other Options?</h3>
-            <p><strong>Railway/Render:</strong> These platforms looked cool and were beginner-friendly, but they cost $5–20/month even when my app wasn't running. That's too steep for a student budget when Lambda could handle the same workload essentially for free.</p>
-            <p><strong>Google Cloud Run:</strong> Actually quite similar to Lambda with comparable pricing, but AWS had better documentation and more learning resources for someone just starting with cloud development.</p>
-            <p><strong>Traditional Web Hosting:</strong> Would have cost $10+ monthly and required learning server management — skills that weren't really relevant to my core project goals. Plus, I'd be paying for resources I wasn't using 99% of the time.</p>
-            <p>The decision ultimately came down to focusing on what mattered: building AI-powered features rather than managing infrastructure. AWS Lambda let me put "serverless architecture" on my resume while keeping costs near zero!</p>
+            <p><strong>Railway/Render:</strong> These platforms looked cool and were beginner-friendly, but they cost $5–20/month even when my app wasn't running. That's too steep for a student budg[...]
+            <p><strong>Google Cloud Run:</strong> Actually quite similar to Lambda with comparable pricing, but AWS had better documentation and more learning resources for someone just starting with [...]
+            <p><strong>Traditional Web Hosting:</strong> Would have cost $10+ monthly and required learning server management — skills that weren't really relevant to my core project goals. Plus, I'[...]
+            <p>The decision ultimately came down to focusing on what mattered: building AI-powered features rather than managing infrastructure. AWS Lambda let me put "serverless architecture" on my r[...]
 
             <h3>The Tech Stack</h3>
             <ul>
@@ -328,7 +352,7 @@
                 <img src="Copilot3.webp" alt="Office Copilot4"/>
             </div>
             <div class="callout">
-                <p>The most exciting validation came when a real company integrated NewLens API into their Microsoft 365 Copilot system. Their sales and marketing teams can create an Excel document in their SharePoint portal and create a simple Office 365 Copilot Agent to call NewsLens API.</p>
+                <p>The most exciting validation came when a real company integrated NewLens API into their Microsoft 365 Copilot system. Their sales and marketing teams can create an Excel document in[...]
             </div>
             
             <p>They can ask <strong>"Show me the latest news"</strong> or simply ask for a specific company: <strong>"Show me the latest news for RLDatix LifeSciences"</strong></p>
@@ -337,7 +361,7 @@
                 <p>And instantly receive:</p>
                 <h4>Press Release Updates</h4>
                 <ul>
-                    <li>MediSpend and RLDatix Life Sciences Merge — Creating a unified SaaS platform for regulatory compliance across 300+ global pharmaceutical, biotech, and medical device companies</li>
+                    <li>MediSpend and RLDatix Life Sciences Merge — Creating a unified SaaS platform for regulatory compliance across 300+ global pharmaceutical, biotech, and medical device companie[...]
                     <li>Date: September 2, 2025</li>
                 </ul>
                 <h4>Latest Headlines</h4>
@@ -380,12 +404,12 @@
             <p><strong>Solve Real Problems:</strong> The best validation is when real companies integrate your solution into their workflows.</p>
 
             <h2>Try It Yourself</h2>
-            <p>NewLens API code is available to download and deploy as Lambda function in AWS for developers who want to integrate intelligent news monitoring into their applications. The API requires your own Perplexity AI key, ensuring security and cost transparency.</p>
-            <p><strong>API Endpoint:</strong> <a href="https://b0sceka65j.execute-api.us-east-1.amazonaws.com/dev/getnews" target="_blank">https://b0sceka65j.execute-api.us-east-1.amazonaws.com/dev/getnews</a></p>
+            <p>NewLens API code is available to download and deploy as Lambda function in AWS for developers who want to integrate intelligent news monitoring into their applications. The API requires[...]
+            <p><strong>API Endpoint:</strong> <a href="https://b0sceka65j.execute-api.us-east-1.amazonaws.com/dev/getnews" target="_blank">https://b0sceka65j.execute-api.us-east-1.amazonaws.com/dev/ge[...]
             <p>Check out the full documentation and sample code in my <a href="https://github.com/keshav894/newslensapi" target="_blank">GitHub repository</a>.</p>
 
             <div class="callout">
-                <p><strong>Building NewLens API taught me that age doesn't limit impact.</strong> With the right problem focus, modern tools, and persistence, high school students can create solutions that real companies find valuable.</p>
+                <p><strong>Building NewLens API taught me that age doesn't limit impact.</strong> With the right problem focus, modern tools, and persistence, high school students can create solutions[...]
                 <p><strong>What problem will you solve next?</strong></p>
             </div>
 
